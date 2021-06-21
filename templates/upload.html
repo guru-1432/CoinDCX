@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="input-group container p-5">
+    <form action = '/file_upload' method="POST" enctype="multipart/form-data">
+        <input type="file" class="form-control" id="csv_file" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name = "csv_file">
+        <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Process file</button>
+    </form>
+</div>
+<div class = "p-5"> * Please upload the csv file downloaded from CoindDCX website (Preferable to include all transactions)</div>
+
+{% endblock content %}
+</html>

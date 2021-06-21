@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class = "m-5 text-dark bg-light">
+    <h2>CoinDCX Report</h2>
+    <p>
+       <h6><b>Why do we need this ?</h6></b>
+       <ul>
+           <li>One tool that the coinDCX is missing is place where an inverst/trader can have a clear insight on his portfolio (Some sort of analytics tool as in apps like Zerodha </li>
+           <li> More stats on transactions like avg unit price of an  asset, P/L perecentage etc will be useful for the end user</li>
+       </ul> 
+       <h6><b>This report</h6></b>
+       <ul>
+           <li>The main focus of this report is to show some insight of the trades like avg price of a crypto and proft/loss percentage</li>
+           <li>There is also a chart that shows how our total investment is split across various asset. This will be useful for an inverstor to manage his assets</li>
+       </ul>
+       <h6><b>Technicality</h6></b>
+       <ul>
+        <li> The report is built using Python-Flask and chart.js for the chart.</li>
+        <li> The stats from the report are from the users filled orders</li>
+        <li> One of the CoinDCX public api was used to get the current market price for a particular asset</li>
+       </ul>
+       <h6><b>Developer Note</h6></b>
+       <ul>
+        <li> This is just a POC to highlight that we can get some usefull insights from the data avilable.</li>
+        <li> Currently the datasource for the application is a flat CSV file extracted from the CoinDCX orders page</li>
+        <li> As process improvement we can update the datasource to be a database or we can use an existing CoinDCX api</li>
+       </ul>
+    </p>
+    </div>
+
+
+{% endblock content %}
+</html>

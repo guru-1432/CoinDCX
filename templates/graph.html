@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class = "p-5 row">
+  <div class = "col-3"></div>
+  <div class = "col-6"> 
+  <table class="table table-secondary  table-bordered" >
+      <tr class = "table-active">
+        {% for columns in table_data['columns'] %}
+          <th>{{columns}}</th>
+        {% endfor %}
+      </tr>
+      {% for row in table_data['data']%}
+      <tr >
+        {% for cell_data in row %}
+          <td>{{ cell_data }}</td>
+        {% endfor %}
+        {% endfor %}
+      </tr>
+  </table>
+</div>
+</div>
+
+<div class = "row">
+  <div class = "col-1"></div>
+<div class="container col-8">
+  <canvas id = "DCX_chart" width="900" height="400" ></canvas>
+</div>
+</div>
+      
+<!-- Chart segment -->
+<script> 
+
+let mychart = document.getElementById('DCX_chart').getContext('2d');
+Chart.defaults.global.defaultFontFamily = 'Lato';
+Chart.defaults.global.defaultFontSize = 18;
+Chart.defaults.global.defaultFontColor = '#777';
+var gb_colour = [];
+
+let piechart = new Chart(mychart,{
+  type:'bar', 
+  data:{
+    labels:{{ lable | safe }},
+    datasets:[{
+        label:'Current Value',
+      data: {{ chart_data | safe }},
+    //   backgroundColor:'#111',
+      borderWidth:1,
+      borderColor:'#777',
+      hoverBorderWidth:3,
+      hoverBorderColor:'#000'
+    }] // dataset end
+    },// data end
+    options:{
+      title:{
+        display:true,
+        text:' Portfolio',
+        fontSize:25,
+        fontColor:'#565'
+    },
+    legend:{
+      display:true,
+      position:'right',
+      labels:{
+      fontColor:'#000'
+      }
+    },
+    layout:{
+      padding:{
+      left:50,
+      right:0,
+      bottom:0,
+      top:0
+      }
+    },
+    tooltips:{
+      enabled:true
+    }
+  }
+});
+</script>
+
+
+
+{% endblock content %}
+</html>
